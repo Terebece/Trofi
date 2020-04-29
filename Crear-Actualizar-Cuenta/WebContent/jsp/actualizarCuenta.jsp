@@ -18,19 +18,19 @@
 		<table>
 			<tr>
 				<td><label>Nombre</label></td>
-				<td><input type="text" name="nombre" value="<c:out value="${nombre}"></c:out>" ></td>
+				<td><input type="text" name="nombre"  title="Ingresa tu nombre" required="" value="<c:out value="${nombre}"></c:out>" ></td>
 			</tr>
 			<tr>
 				<td><label>Apellido paterno</label></td>
-				<td><input type="text" name="paterno" value='<c:out value="${paterno}"></c:out>' ></td>
+				<td><input type="text" name="paterno" title="Ingresa tu apellido paterno" required="" value='<c:out value="${paterno}"></c:out>' ></td>
 			</tr>
 			<tr>
 				<td><label>Apellido materno</label></td>
-				<td><input type="text" name="materno" value='<c:out value="${materno}"></c:out>' ></td>
+				<td><input type="text" name="materno" title="Ingresa tu apellido materno" required=""  value='<c:out value="${materno}"></c:out>' ></td>
 			</tr>
 			<tr>
 				<td><label>Telefono</label></td>
-				<td><input type="text" name="telefono" value='<c:out value="${telefono}"></c:out>' ></td>
+				<td><input type="text" name="telefono" title="Ingresa un número telefónico" minlength="10" maxlength="10" required="" value='<c:out value="${telefono}"></c:out>' ></td>
 			</tr>
 		</table>
 	

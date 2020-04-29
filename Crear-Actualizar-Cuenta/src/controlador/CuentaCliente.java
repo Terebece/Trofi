@@ -54,6 +54,9 @@ public class CuentaCliente extends HttpServlet {
 			case "crearCuenta":
 				crearCuenta(request, response);
 				break;
+			case "inicio":
+				inicio(request, response);
+				break;
 			case "mostrarPerfil":
 				mostrarPerfil(request, response);
 				break;
@@ -105,7 +108,13 @@ public class CuentaCliente extends HttpServlet {
 		correo = cliente.getCorreoE();
 		Direccion direccion = new Direccion(request.getParameter("correo_e"), request.getParameter("direccion"));
 		direccionDAO.agregarDireccion(direccion);
-		
+		String mensaje = "Creación de cuenta exitosa"; 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/mensaje.jsp");
+		request.setAttribute("mensaje", mensaje);
+		dispatcher.forward(request, response);
+	}
+	
+	private void inicio(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		RequestDispatcher dispatcher= request.getRequestDispatcher("/jsp/inicio.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -134,7 +143,10 @@ public class CuentaCliente extends HttpServlet {
 	private void actualizarCuenta(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		Cliente cliente = new Cliente(request.getParameter("nombre"), request.getParameter("paterno"), request.getParameter("materno"), correo, " ", request.getParameter("telefono"));
 		clienteDAO.actualizarCuenta(cliente);
-		mostrarPerfil(request, response);
+		String mensaje = "Actualización de cuenta exitosa"; 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/mensaje.jsp");
+		request.setAttribute("mensaje", mensaje);
+		dispatcher.forward(request, response);
 	}
 	
 	private void direcciones(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -152,7 +164,10 @@ public class CuentaCliente extends HttpServlet {
 	private void agregarDireccion(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		Direccion direccion = new Direccion(correo, request.getParameter("direccion"));
 		direccionDAO.agregarDireccion(direccion);
-		mostrarPerfil(request, response);
+		String mensaje = "Dirección agregada con exito"; 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/mensaje.jsp");
+		request.setAttribute("mensaje", mensaje);
+		dispatcher.forward(request, response);
 	}
 	
 	private void eliminarDireccion(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {

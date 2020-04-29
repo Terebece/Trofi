@@ -12,31 +12,31 @@
         <table>
             <tr>
                 <td><label>Nombre</label></td>
-                <td><input type="text" name="nombre"></td>
+                <td><input type="text" name="nombre" title="Ingresa tu nombre" required=""></td>
             </tr>
             <tr>
                 <td><label></label>Apellido paterno</td>
-                <td><input type="text" name="a_paterno"></td>
+                <td><input type="text" name="a_paterno" title="Ingresa tu apellido paterno" required=""></td>
             </tr>
             <tr>
                 <td><label>Apellido materno</label></td>
-                <td><input type="text" name="a_materno"></td>
+                <td><input type="text" name="a_materno" title="Ingresa tu apellido materno" required=""></td>
             </tr>
             <tr>
                 <td><label>Correo electrónico</label></td>
-                <td><input type="text" name="correo_e"></td>
+                <td><input type="email" name="correo_e" placeholder="ejemplo@correo.com" title="Ingresa tu correo electrónico"required=""></td>
             </tr>
             <tr>
                 <td><label></label>Contraseña</td>
-                <td><input type="text" name="contrasenia"></td>
+                <td><input type="password" name="contrasenia" title="Ingresa una contraseña" required=""></td>
             </tr>
             <tr>
                 <td><label>Teléfono</label></td>
-                <td><input type="text" name="telefono"></td>
+                <td><input type="text" name="telefono" title="Ingresa un número telefónico" minlength="10" maxlength="10" required=""></td>
             </tr>
             <tr>
                 <td><label>Dirección</label></td>
-                <td><input type="text" name="direccion"></td>
+                <td><input type="text" name="direccion"  title="Ingresa una dirección" required=""></td>
             </tr>
         </table>
         <input type="submit" name="crear" value="Crear">
