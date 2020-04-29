@@ -34,7 +34,7 @@
 		
 		<table>
 			<tr>
-				<td><a href="cuentaCliente?action=mostrarDirecciones">Direcciones</a></td>
+				<td><a href="cuentaCliente?action=direcciones">Direcciones</a></td>
 				<td><a href="cuentaCliente?action=mostrarActualizarCuenta">Actualizar</a></td>
 			</tr>
 		</table>

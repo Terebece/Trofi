@@ -30,6 +30,7 @@
 		</table>
 	
 		<input type="submit" name="guardar" value="Guardar"> 
+		<input type="submit" name="cancelar" value="Cancelar"> 
 	</form>
 
 </body>

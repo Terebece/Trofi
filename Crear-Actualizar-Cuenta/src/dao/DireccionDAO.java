@@ -40,9 +40,10 @@ public class DireccionDAO {
 		List<Direccion> direcciones = new ArrayList<Direccion>();
 		String sql = "SELECT * FROM direccion_cliente WHERE correo_e = ?";
 		con.conectar();
+		connection = con.getJdbcConnection();
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, correo_e);
-		ResultSet resultSet = statement.executeQuery(sql);
+		ResultSet resultSet = statement.executeQuery();
 		while(resultSet.next()) {
 			String correo = resultSet.getString("correo_e");
 			String direccion = resultSet.getString("direccion");
@@ -56,7 +57,7 @@ public class DireccionDAO {
 	// Eliminar direccion.
 	public boolean eliminarDireccion(Direccion direccion) throws SQLException {
 		boolean eliminar = false;
-		String sql = "DELETE FROM direccion_cliente WHERE correo_e = ?, direccion = ?";
+		String sql = "DELETE FROM direccion_cliente WHERE correo_e = ? and direccion = ?";
 		con.conectar();
 		connection = con.getJdbcConnection();
 		PreparedStatement statement = connection.prepareStatement(sql);

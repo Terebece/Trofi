@@ -12,22 +12,25 @@
 	<h1>Direcciones</h1>
 	<table>
 		<tr>
-			<td><a href="cuentaCliente?action=mostrarPerfil" >Ir al perfil</a> </td>
+			<td><a href="cuentaCliente?action=mostrarPerfil">Volver al perfil</a></td>
 		</tr>
 	</table>
-	
 	<table border="1" width="100%">
 		<tr>
-		 <td> Dirección</td>
-		 <td> Acciones</td>
+		 <td>Dirección</td>
+		 <td>Acción</td>
 		</tr>
-		<c:forEach var="dir" items="${direcciones}">
+		<c:forEach var="dir" items="${lista}">
 			<tr>
 				<td><c:out value="${dir.direccion}"/></td>
-				<td><a href="cuentaCliente?action=eliminarDireccion&direccion=<c:out value="${dir.direccion}"/>">Eliminar</a> </td>				
+				<td><a href="cuentaCliente?action=eliminarDireccion&direccion=<c:out value="${dir.direccion}"/>">Eliminar</a> </td>
 			</tr>
 		</c:forEach>
 	</table>
-	
+	<table>
+		<tr>
+			<td><a href="cuentaCliente?action=nuevaDireccion">Agregar dirección</a></td>
+		</tr>
+	</table>
 </body>
 </html>

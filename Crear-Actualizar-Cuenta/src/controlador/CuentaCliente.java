@@ -63,8 +63,8 @@ public class CuentaCliente extends HttpServlet {
 			case "actualizarCuenta":
 				actualizarCuenta(request, response);
 				break;
-			case "mostrarDirecciones":
-				mostrarDirecciones(request, response);
+			case "direcciones":
+				direcciones(request, response);
 				break;
 			case "nuevaDireccion":
 				nuevaDireccion(request, response);
@@ -137,12 +137,11 @@ public class CuentaCliente extends HttpServlet {
 		mostrarPerfil(request, response);
 	}
 	
-	// Revisar aquí
-	private void mostrarDirecciones(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+	private void direcciones(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/direcciones.jsp");
-	    List<Direccion> direcciones = direccionDAO.obtenerDirecciones(correo);
-	    request.setAttribute("direcciones", direcciones);
-	    dispatcher.forward(request, response);
+        List<Direccion> listaDirecciones= direccionDAO.obtenerDirecciones(correo);
+		request.setAttribute("lista", listaDirecciones);
+		dispatcher.forward(request, response);
 	}
 	
 	private void nuevaDireccion(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -151,17 +150,15 @@ public class CuentaCliente extends HttpServlet {
 	}
 	
 	private void agregarDireccion(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-		Direccion direccion = new Direccion(request.getParameter("correo_e"), request.getParameter("direccion"));
+		Direccion direccion = new Direccion(correo, request.getParameter("direccion"));
 		direccionDAO.agregarDireccion(direccion);
-		RequestDispatcher dispatcher= request.getRequestDispatcher("/jsp/perfilCliente.jsp");
-		dispatcher.forward(request, response);
+		mostrarPerfil(request, response);
 	}
 	
 	private void eliminarDireccion(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		Direccion direccion = new Direccion(correo, request.getParameter("direccion"));
 		direccionDAO.eliminarDireccion(direccion);
-		RequestDispatcher dispatcher= request.getRequestDispatcher("/jsp/perfilCliente.jsp");
-		dispatcher.forward(request, response);
+		mostrarPerfil(request, response);
 	}
 	
 }
