@@ -7,7 +7,7 @@ CREATE TABLE `administrador` (
   `nombre` varchar(50) NOT NULL,
   `a_paterno` varchar(50) NOT NULL,
   `a_materno` varchar(50) NOT NULL,
-  `contrasenia` blob NOT NULL,
+  `contrasenia` varchar(40) NOT NULL,
   PRIMARY KEY (`correo_e`),
   UNIQUE(`correo_e`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -18,7 +18,7 @@ CREATE TABLE `cliente`(
   `nombre` varchar(50) NOT NULL,
   `a_paterno` varchar(50) NOT NULL,
   `a_materno` varchar(50) NOT NULL,
-  `contrasenia` blob NOT NULL,
+  `contrasenia` varchar(40) NOT NULL,
   `telefono` char(10) NOT NULL,
   PRIMARY KEY (`correo_e`),
   UNIQUE(`correo_e`)
@@ -30,7 +30,7 @@ CREATE TABLE `repartidor`(
   `nombre` varchar(50) NOT NULL ,
   `a_paterno` varchar(50) NOT NULL,
   `a_materno` varchar(50) NOT NULL,
-  `contrasenia` blob NOT NULL,
+  `contrasenia` varchar(40) NOT NULL,
   PRIMARY KEY (`correo_e`),
   UNIQUE(`correo_e`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -71,7 +71,7 @@ CREATE TABLE `alimento`(
   `costo` decimal(6, 2) NOT NULL,
   `foto` longblob NOT NULL,
   PRIMARY KEY (`id_categoria`, `id_alimento`),
-  FOREIGN KEY (`id_categoria`) REFERENCES categoria(`id_categoria`)
+  FOREIGN KEY (`id_categoria`) REFERENCES categoria(`id_categoria`) ON DELETE CASCADE
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT = 1;
 
 DROP TABLE IF EXISTS `tener`;
@@ -86,6 +86,7 @@ CREATE TABLE `tener`(
   FOREIGN KEY (`id_categoria`) REFERENCES alimento(`id_categoria`),
   FOREIGN KEY (`id_alimento`) REFERENCES alimento(`id_alimento`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT = 1;
+
 
 
 
