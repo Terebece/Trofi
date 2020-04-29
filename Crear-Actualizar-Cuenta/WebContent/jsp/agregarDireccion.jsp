@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Agregar dirección</title>
+<title>Agregar direcciÃ³n</title>
 </head>
 <body>
-    <h1>Agregar dirección</h1>
+    <h1>Agregar direcciÃ³n</h1>
     <form action="cuentaCliente?action=agregarDireccion" method="post">
     	<table>
 			<tr>
@@ -16,8 +16,8 @@
 		</table>
         <table>
             <tr>
-                <td><label>Dirección</label></td>
-                <td><input type="text" name="direccion"></td>
+                <td><label>DirecciÃ³n</label></td>
+                <td><input type="text" name="direccion" title="Ingresa una direcciÃ³n" required=""></td>
             </tr>
         </table>
         <input type="submit" name="agregar" value="Agregar">
