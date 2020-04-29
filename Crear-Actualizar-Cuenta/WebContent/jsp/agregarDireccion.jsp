@@ -9,6 +9,11 @@
 <body>
     <h1>Agregar dirección</h1>
     <form action="cuentaCliente?action=agregarDireccion" method="post">
+    	<table>
+			<tr>
+				<td><a href="cuentaCliente?action=mostrarPerfil">Volver al perfil</a></td>
+			</tr>
+		</table>
         <table>
             <tr>
                 <td><label>Dirección</label></td>

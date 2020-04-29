@@ -12,6 +12,11 @@
 	<form action="cuentaCliente?action=actualizarCuenta" method="post" >
 		<table>
 			<tr>
+				<td><a href="cuentaCliente?action=mostrarPerfil">Volver al perfil</a></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
 				<td><label>Nombre</label></td>
 				<td><input type="text" name="nombre" value="<c:out value="${nombre}"></c:out>" ></td>
 			</tr>
@@ -30,7 +35,6 @@
 		</table>
 	
 		<input type="submit" name="guardar" value="Guardar"> 
-		<input type="submit" name="cancelar" value="Cancelar"> 
 	</form>
 
 </body>
